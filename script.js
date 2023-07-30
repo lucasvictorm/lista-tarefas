@@ -1,10 +1,8 @@
 let principal = document.getElementById("principal")
+let numtasks = 0;
+let numCheckTasks = 0;
 const allTasks = document.querySelectorAll(".task-item")
-let numtask = 0;
 class Task{
-    constructor(name){
-        this.name = name;
-    }
     createTask(text) {
         let tagP = document.createElement("p");
         let deleteIcon = document.createElement("span");
@@ -35,11 +33,6 @@ class Task{
         
         principal.appendChild(task);
         textoTask.value = "";
-
-
-        /*<span class="material-symbols-outlined">
-        delete
-        </span>*/
     }
     
 }
@@ -49,10 +42,9 @@ function newTask(){
     if(textoTask.value == ''){
         return;
     }
-    numtask += 1;
-    let objTask = new Task(`task${numtask}`)
+    let objTask = new Task()
     objTask.createTask(textoTask.value)
-    
+    numtasks += 1;
 }
 
 document.querySelector("body").addEventListener("click", (el) =>{
@@ -63,7 +55,30 @@ document.querySelector("body").addEventListener("click", (el) =>{
         parentEl.remove();
     }
     if(targEl.id == "check"){
+        let concluidos = document.getElementById("tasks-concluidas");
+       
+        if(parentEl.classList.contains("checked")){
+            numCheckTasks -= 1;
+            principal.appendChild(parentEl);
+            parentEl.classList.toggle("checked");
+            concluidos.innerHTML = '';
+            return;
+            //concluidos.remove(parentEl);
+        }else{
+            numCheckTasks += 1;
+            
+        }
+        if(numCheckTasks == 1){
+            concluidos.innerHTML += `<h2 id="concluidos">Concluídos (1/1)</h2>`;
+        }else{
+            concluidos.innerHTML = '';
+        }
+        
         parentEl.classList.toggle("checked");
+        concluidos.appendChild(parentEl)
+        
+        console.log(numCheckTasks)
+        
     }
 })
 
