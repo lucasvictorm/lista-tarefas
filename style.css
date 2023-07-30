@@ -38,11 +38,12 @@ input[type="text"]{
     width: 200px;
     height: 50px;
     border: none;
-    
+    font-size: 1em;
 }
 input[type="text"]:focus{
     outline: none;
 }
+
 
 .task{
     border-radius: 40px;
@@ -56,10 +57,26 @@ input[type="text"]:focus{
 }
 
 .task-item{
+    padding: 10px;
     min-height: 50px;
+    margin-top: 10px;
+    width: 400px;
+    justify-content: start;
+    
+}
+
+.task-item span.material-symbols-outlined:nth-child(2){
+    margin-left: 50px;
 }
 
 span.material-symbols-outlined{
     color: black;
     cursor: pointer;
+    margin-left: 10px;
+}
+
+p{
+    width: 200px;
+    word-wrap: inherit;
+    margin-left: 40px;
 }
