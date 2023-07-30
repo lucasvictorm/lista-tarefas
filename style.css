@@ -96,7 +96,6 @@ p{
     color: rgba(0, 0, 0, 0.5);
 }
 
-#concluidos{
-    margin-top: 20px;
-    font-size: 1.3em;
+#texto-concluidos{
+    padding-top: 10px;
 }
