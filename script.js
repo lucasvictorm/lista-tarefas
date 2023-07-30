@@ -17,12 +17,14 @@ class Task{
 
         deleteIcon.classList.add("material-symbols-outlined");
         deleteIcon.appendChild(document.createTextNode("delete"));
+        deleteIcon.setAttribute("id", "delete");
 
         editIcon.classList.add("material-symbols-outlined");
         editIcon.appendChild(document.createTextNode("edit"));
 
         checkIcon.classList.add("material-symbols-outlined");
         checkIcon.appendChild(document.createTextNode("check_circle"));
+        checkIcon.setAttribute("id", "check");
 
         let texto = document.createTextNode(text)
         tagP.appendChild(texto);
@@ -53,8 +55,20 @@ function newTask(){
     
 }
 
-allTasks.forEach()
+document.querySelector("body").addEventListener("click", (el) =>{
+    const targEl = el.target;
+    const parentEl = targEl.closest('div'); 
 
-function deleteTask(){
+    if(targEl.id == "delete"){
+        parentEl.remove();
+    }
+    if(targEl.id == "check"){
+        parentEl.classList.toggle("checked");
+    }
+})
 
-}
+addEventListener("keydown", (key) => {
+    if(key.key == "Enter"){
+        newTask()
+    }
+})

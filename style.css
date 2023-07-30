@@ -3,21 +3,21 @@
     padding: 0;
 }
 body{
+    height: 100vh;
+    display: flex;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(23, 195, 247);
+    flex-direction: column;
+    align-items: center;
+    
 }
-header{
-    padding: 50px;
-}
-menu{
-    width: 30%;
-    display: flex;
-    height: 100%;
-    margin-left: 20px;
-}
+
 main{
-    width: 80vw;
-    margin: auto;
+    border-radius: 20px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    width: 450px;
 }
 button{
     cursor: pointer;
@@ -48,6 +48,7 @@ input[type="text"]:focus{
 .task{
     border-radius: 40px;
     /*padding-top: 50px;*/
+    border: 2px solid rgb(93, 93, 93);
     margin: auto;
     background-color: rgb(255, 255, 255);
     width: 350px;
@@ -59,7 +60,7 @@ input[type="text"]:focus{
 .task-item{
     padding: 10px;
     min-height: 50px;
-    margin-top: 10px;
+    margin-top: 30px;
     width: 400px;
     justify-content: start;
     
@@ -79,4 +80,8 @@ p{
     width: 200px;
     word-wrap: inherit;
     margin-left: 40px;
+}
+
+.checked{
+    background-color: rgb(30, 218, 30);
 }
