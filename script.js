@@ -1,5 +1,7 @@
 let principal = document.getElementById("principal");
 let tarefas = document.getElementById("tarefas");
+let areaEdit = document.getElementById("area-edit");
+let textoEdit = document.getElementById("texto-editado");
 
 tarefas.parentElement
 let numtasks = 0;
@@ -128,22 +130,28 @@ function checkTask(parentEl){
 
 function editTask(text){
     console.log(text)
-    let areaEdit = document.getElementById("area-edit");
+    
     if(!areaEdit.classList.contains("hidden")){
         return;
     }
-    let textoEdit = document.getElementById("texto-editado");
+    
     textoEdit.value = text.innerText;
     areaEdit.classList.toggle("hidden");
     objText = text;
     
 }
 function finish(){
-    let textoEdit = document.getElementById("texto-editado");
+    
     objText.innerText = textoEdit.value;
+    areaEdit.classList.toggle("hidden");
     //console.log(text.innerText)
     //parent.getElementsBytagName("")
     //textoEdit.value
     //console.log(objText);
+}
+
+function cancel(){
+    areaEdit.classList.toggle("hidden");
+    textoEdit.value;
 }
 
