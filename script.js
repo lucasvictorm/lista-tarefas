@@ -76,7 +76,7 @@ principal.addEventListener("click", (el) =>{
     }
     if(targEl.id == "edit"){
         let tagP = parentEl.getElementsByTagName("p");
-        editTask(tagP[0], parentEl);
+        editTask(tagP[0]);
     }
 })
 
@@ -126,7 +126,7 @@ function checkTask(parentEl){
     attNumTasks();
 }
 
-function editTask(text, parent){
+function editTask(text){
     console.log(text)
     let areaEdit = document.getElementById("area-edit");
     if(!areaEdit.classList.contains("hidden")){
@@ -135,16 +135,15 @@ function editTask(text, parent){
     let textoEdit = document.getElementById("texto-editado");
     textoEdit.value = text.innerText;
     areaEdit.classList.toggle("hidden");
-    var objText = text;
-   /* areaEdit.addEventListener("click", (targ) =>{
-        if(targ.id == "finish"){
-            text.innerText = textoEdit.value;
-            console.log(text.innerText)
-            //parent.getElementsBytagName("")
-            //textoEdit.value
-        }
-    })*/
+    objText = text;
     
 }
+function finish(){
+    let textoEdit = document.getElementById("texto-editado");
+    objText.innerText = textoEdit.value;
+    //console.log(text.innerText)
+    //parent.getElementsBytagName("")
+    //textoEdit.value
+    //console.log(objText);
+}
 
-console.log(objText);
