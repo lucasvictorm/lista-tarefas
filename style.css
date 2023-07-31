@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
     height: 100vh;
@@ -19,20 +20,6 @@ main{
     background-color: rgb(255, 255, 255);
     width: 450px;
 }
-button{
-    cursor: pointer;
-    padding: 10px;
-    margin:0 10px;
-    font-size: 1em;
-    background: none;
-    border: none;
-    color: black;
-    border-radius: 5px;
-}
-button:hover{
-    background-color: rgb(166, 166, 166);
-    color: white;
-}
 
 input[type="text"]{
     width: 200px;
@@ -43,7 +30,6 @@ input[type="text"]{
 input[type="text"]:focus{
     outline: none;
 }
-
 
 .task{
     border-radius: 40px;
@@ -98,4 +84,63 @@ p{
 
 #texto-concluidos{
     padding-top: 10px;
+}
+
+#caixa-edit{
+    width: 100vw;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#area-edit{
+    position: relative;
+    height: 200px;
+    width: 600px;
+    background-color: #ffffff;
+    border-radius: 20px 20px 0px 0px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 10px black;
+    border: 2px solid black;
+}
+
+#texto-editado{
+    border-bottom: 2px solid black;
+    width: 400px;
+    padding: 0px;
+}
+#botoes-edit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#botoes-edit .material-symbols-outlined{
+    font-size: 2.5em;
+}
+#botoes-edit button:hover{
+    background-color: none;
+}
+button{
+    cursor: pointer;
+    padding: 0px;
+    margin: 15px;
+    font-size: 1em;
+    background: none;
+    border: none;
+    color: black;
+    border-radius: 5px;
+}
+
+#caixa-edit .hidden{
+    display: none;
 }

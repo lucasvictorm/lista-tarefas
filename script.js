@@ -1,10 +1,14 @@
-let principal = document.getElementById("principal")
-let tarefas = document.getElementById("tarefas")
+let principal = document.getElementById("principal");
+let tarefas = document.getElementById("tarefas");
+
+tarefas.parentElement
 let numtasks = 0;
 let numCheckTasks = 0;
+let taskId = 0;
 const allTasks = document.querySelectorAll(".task-item")
-class Task{
-    createTask(text) {
+
+function  createTask(text) {
+        taskId += 1;
         let tagP = document.createElement("p");
         let deleteIcon = document.createElement("span");
         let editIcon = document.createElement("span");
@@ -12,6 +16,7 @@ class Task{
         let task = document.createElement('div');
 
         task.setAttribute("class", "task");
+        task.setAttribute("id", taskId);
         task.classList.add("task-item");
 
         deleteIcon.classList.add("material-symbols-outlined");
@@ -20,6 +25,7 @@ class Task{
 
         editIcon.classList.add("material-symbols-outlined");
         editIcon.appendChild(document.createTextNode("edit"));
+        editIcon.setAttribute("id", "edit");
 
         checkIcon.classList.add("material-symbols-outlined");
         checkIcon.appendChild(document.createTextNode("check_circle"));
@@ -35,22 +41,20 @@ class Task{
         tarefas.appendChild(task);
         textoTask.value = "";
     }
-    
-}
 
 function newTask(){
     let textoTask = document.getElementById("textoTask");
     if(textoTask.value == ''){
         return;
     }
-    let objTask = new Task()
-    objTask.createTask(textoTask.value)
+    createTask(textoTask.value)
     numtasks += 1;
     attNumTasks()
 }
 
-document.querySelector("body").addEventListener("click", (el) =>{
+principal.addEventListener("click", (el) =>{
     const targEl = el.target;
+    
     const parentEl = targEl.closest('div'); 
 
     if(targEl.id == "delete"){
@@ -63,38 +67,16 @@ document.querySelector("body").addEventListener("click", (el) =>{
                 
                 let textConcluidos = document.getElementById("texto-concluidos");
                 textConcluidos.innerHTML = ""
-                concluidos.remove();
             }
             return;
         }
     }
     if(targEl.id == "check"){
-        if(principal.querySelector("#tasks-concluidas")== null){
-            createCheckTasks()
-        }
-        let concluidos = document.getElementById("tasks-concluidas");
-       
-        if(parentEl.classList.contains("checked")){
-            numCheckTasks -= 1;
-            tarefas.appendChild(parentEl);
-            parentEl.classList.toggle("checked");
-            attNumTasks();
-            if(concluidos.children.length == 0){
-                let textConcluidos = document.getElementById("texto-concluidos");
-                textConcluidos.innerHTML = ""
-                concluidos.remove();
-                return;
-            }
-            return;
-        }else{
-            numCheckTasks += 1;
-            
-        }
-        
-         
-        parentEl.classList.toggle("checked");
-        concluidos.appendChild(parentEl);
-        attNumTasks();
+        checkTask(parentEl);
+    }
+    if(targEl.id == "edit"){
+        let tagP = parentEl.getElementsByTagName("p");
+        editTask(tagP[0], parentEl);
     }
 })
 
@@ -104,22 +86,10 @@ addEventListener("keydown", (key) => {
     }
 })
 
-function createCheckTasks(){
-    let taskDiv = document.createElement("div");
-    taskDiv.setAttribute("id", "tasks-concluidas");
-    principal.appendChild(taskDiv);
-}
-
 function attNumTasks(){
-    /*let textConcluidos = document.getElementById("texto-concluidos");
-    if(numCheckTasks == 0){
-        return;
-    }else{
-        textConcluidos.innerHTML = `<h2 id="h2-concluidos">Concluídos (${numCheckTasks}/${numtasks})</h2>`;
-    }*/
     let textConcluidos = document.getElementById("texto-concluidos");
     let concluidos = document.getElementById("tasks-concluidas");
-    if(concluidos == null){
+    if(concluidos.children.length == 0){
         return;
     }else{
         textConcluidos.innerHTML = `<h2 id="h2-concluidos">Concluídos (${concluidos.children.length}/${numtasks})</h2>`;
@@ -127,6 +97,54 @@ function attNumTasks(){
     
 }
 
-/*function verifyCheckedTask(parentEl){
+function checkTask(parentEl){
+    if(principal.querySelector("#tasks-concluidas")== null){
+        createCheckTasks()
+    }
+    let concluidos = document.getElementById("tasks-concluidas");
+   
+    if(parentEl.classList.contains("checked")){
+        numCheckTasks -= 1;
+        tarefas.appendChild(parentEl);
+        parentEl.classList.toggle("checked");
+        attNumTasks();
+        if(concluidos.children.length == 0){
+            let textConcluidos = document.getElementById("texto-concluidos");
+            textConcluidos.innerHTML = ""
+            
+            return;
+        }
+        return;
+    }else{
+        numCheckTasks += 1;
+        
+    }
     
-}*/
+     
+    parentEl.classList.toggle("checked");
+    concluidos.appendChild(parentEl);
+    attNumTasks();
+}
+
+function editTask(text, parent){
+    console.log(text)
+    let areaEdit = document.getElementById("area-edit");
+    if(!areaEdit.classList.contains("hidden")){
+        return;
+    }
+    let textoEdit = document.getElementById("texto-editado");
+    textoEdit.value = text.innerText;
+    areaEdit.classList.toggle("hidden");
+    var objText = text;
+   /* areaEdit.addEventListener("click", (targ) =>{
+        if(targ.id == "finish"){
+            text.innerText = textoEdit.value;
+            console.log(text.innerText)
+            //parent.getElementsBytagName("")
+            //textoEdit.value
+        }
+    })*/
+    
+}
+
+console.log(objText);

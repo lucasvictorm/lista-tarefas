@@ -9,7 +9,7 @@
 </head>
 <body>
     <main id="principal">
-        <div class="task" id="taskInput" draggable="true">
+        <div class="task" id="taskInput">
             <input type="text" id="textoTask">
             <span class="material-symbols-outlined" onclick="newTask()">
                 add_circle
@@ -21,10 +21,31 @@
         <div id="texto-concluidos">
 
         </div>
-        
 
+        <div id="tasks-concluidas">
+       
+        </div>
+
+        <div id="caixa-edit">
+            <div id="area-edit" class="hidden">
+                <input type="text" name="texto-editado" id="texto-editado">
+                <div id="botoes-edit">
+                    <button>
+                        <span class="material-symbols-outlined"  id="finish">
+                            check_circle
+                            </span>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined">
+                            cancel
+                            </span>
+                    </button>
+                </div>
+                
+                
+            </div>
+        </div>
     </main>
-    
 </body>
 <script src="script.js"></script>
 </html>
