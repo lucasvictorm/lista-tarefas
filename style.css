@@ -60,6 +60,7 @@ header{
 }
 
 #toggle-circle{
+    user-select: none;
     background-color: var(--cor-light);
     position: absolute;
     aspect-ratio: 1/1;
@@ -153,6 +154,7 @@ span.material-symbols-outlined{
     color: black;
     cursor: pointer;
     margin-left: 10px;
+    user-select: none;
 }
 
 p{
@@ -226,6 +228,7 @@ p{
     background-color: none;
 }
 button{
+    user-select: none;
     cursor: pointer;
     padding: 0px;
     margin: 15px;
