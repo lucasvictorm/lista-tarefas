@@ -1,6 +1,7 @@
 let principal = document.getElementById("principal");
 let tarefas = document.getElementById("tarefas");
-let areaEdit = document.getElementById("area-edit");
+let areaEdit = document.getElementById("caixa-edit");
+let areaEdit2 = document.getElementById("area-edit");
 let textoEdit = document.getElementById("texto-editado");
 
 tarefas.parentElement
@@ -137,6 +138,7 @@ function editTask(text){
     
     textoEdit.value = text.innerText;
     areaEdit.classList.toggle("hidden");
+    areaEdit2.classList.toggle("hidden");
     objText = text;
     
 }
@@ -144,6 +146,7 @@ function finish(){
     
     objText.innerText = textoEdit.value;
     areaEdit.classList.toggle("hidden");
+    areaEdit2.classList.toggle("hidden");
     //console.log(text.innerText)
     //parent.getElementsBytagName("")
     //textoEdit.value
@@ -152,6 +155,7 @@ function finish(){
 
 function cancel(){
     areaEdit.classList.toggle("hidden");
+    areaEdit2.classList.toggle("hidden");
     textoEdit.value;
 }
 

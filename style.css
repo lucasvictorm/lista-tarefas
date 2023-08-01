@@ -155,6 +155,9 @@ button{
     border-radius: 5px;
 }
 
+main #caixa-edit.hidden {
+    display: none;
+}
 #caixa-edit .hidden{
     display: none;
 }
