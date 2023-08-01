@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+:root{
+    --cor-light: #ffffff;
+    --cor-dark: #02133d;
+    --cor-light-secundaria: #242424;
+}
 body.dark-mode{
     background-color: rgb(2, 19, 61);
     transition: 0.5s;
@@ -12,15 +17,18 @@ body{
     height: 100vh;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(7, 45, 142);
+    background-color: var(--cor-light);
     flex-direction: column;
     align-items: center;
     transition: 0.5s;
 }
 
+.dark-mode header{
+    color: var(--cor-light);
+}
 header{
     position: relative;
-    color: #ffffff;
+    color: var(--cor-light-secundaria);
     margin-top: 20px;
     width: 470px;
     text-align: center;
@@ -29,16 +37,21 @@ header{
 /*.dark-mode #night-light-mode{
     background-color: ;
 }*/
+.dark-mode #night-light-mode{
+    background-color: var(--cor-light);
+}
+
 #night-light-mode{
     display: flex;
     align-items: center;
     justify-content: start;
     width: 80px;
     height: 40px;
-    background-color: white;
+    background-color: var(--cor-light-secundaria);
     border-radius: 50px;
     position: absolute;
     right: 10px;
+    cursor: pointer;
 }
 
 .dark-mode #toggle-circle{
@@ -47,7 +60,7 @@ header{
 }
 
 #toggle-circle{
-    background-color: rgb(7, 45, 142);
+    background-color: var(--cor-light);
     position: absolute;
     aspect-ratio: 1/1;
     margin-left: -2px;
@@ -75,7 +88,7 @@ header{
     display: none;
 }
 #light-icon{
-    color: #ffffff;
+    color: #000000;
 }
 
 #dark-icon{
@@ -86,11 +99,17 @@ header{
     display: block;
 }
 
+.dark-mode main{
+    background-color: var(--cor-light);
+    transition: background-color 0.5s;
+}
+
 main{
+    transition: background-color 0.5s;
     border-radius: 20px;
     margin-top: 50px;
     padding: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--cor-light-secundaria);
     width: 450px;
 }
 
