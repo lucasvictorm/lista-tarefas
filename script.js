@@ -10,6 +10,11 @@ let numCheckTasks = 0;
 let taskId = 0;
 const allTasks = document.querySelectorAll(".task-item")
 
+function darkMode(){
+    let body = document.querySelector("body");
+    body.classList.toggle("dark-mode");
+}
+
 function  createTask(text) {
         taskId += 1;
         let tagP = document.createElement("p");
