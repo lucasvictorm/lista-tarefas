@@ -177,7 +177,12 @@ p{
 }
 
 #texto-concluidos{
-    padding-top: 10px;
+
+    padding-top: 20px;
+    color: #ffffff;
+}
+.dark-mode #texto-concluidos{
+    color: #000000;
 }
 
 #caixa-edit{
