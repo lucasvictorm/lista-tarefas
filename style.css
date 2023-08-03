@@ -159,7 +159,7 @@ span.material-symbols-outlined{
 
 p{
     width: 200px;
-    word-wrap: inherit;
+    word-wrap: break-word;
     margin-left: 40px;
 }
 
@@ -188,13 +188,17 @@ p{
 #caixa-edit{
     width: 100vw;
     height: 200px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     display: flex;
     justify-content: center;
     
     
+}
+
+h2{
+    text-align: center;
 }
 
 #area-edit{
@@ -207,16 +211,24 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     box-shadow: 1px 1px 10px black;
     border: 2px solid black;
     opacity: 100%;
     transition: 1s;
 }
 
+#bottom-area-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #texto-editado{
     border-bottom: 2px solid black;
     width: 400px;
     padding: 0px;
+    height: 40px;
 }
 #botoes-edit{
     display: flex;
