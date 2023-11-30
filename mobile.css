@@ -1,0 +1,17 @@
+@media screen and (max-width: 415px){
+    header #night-light-mode{
+        right: 100px;
+    }
+    main#principal{
+        width: 230px;
+    }
+
+    #principal .task{
+        width: 200px;
+    }
+
+    #principal input[type="text"]{
+        width: 110px;
+        
+    }
+}
